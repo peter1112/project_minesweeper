@@ -1,0 +1,175 @@
+/*
+ * style.css
+ * 這個檔案包含了美食地標防雷系統前端網頁的所有樣式定義。
+ * 它負責網頁的整體佈局、元素外觀、字體、顏色以及響應式設計等。
+ */
+
+body {
+    /* 設定網頁主體的字體家族。優先使用蘋果系統字體 (-apple-system, BlinkMacSystemFont)，
+     * 若無則依序選用 Segoe UI, Roboto, Helvetica Neue, Arial，最後使用任何無襯線字體 (sans-serif)。 */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    /* 設定網頁的背景顏色為淺灰色 (#f4f7f6)，提供柔和的視覺效果。 */
+    background-color: #f4f7f6;
+    /* 設定網頁文本的預設顏色為深灰色 (#333)。 */
+    color: #333;
+    /* 使用 Flexbox 佈局，使 body 內部的所有內容（這裡主要是 .container）能夠彈性排列和定位。 */
+    display: flex;
+    /* 水平方向上，將 Flexbox 容器中的內容居中對齊。 */
+    justify-content: center;
+    /* 垂直方向上，將 Flexbox 容器中的內容居中對齊。 */
+    align-items: center;
+    /* 設定網頁主體的最小高度為視窗可視區域的 100% (viewport height)，
+     * 確保即使內容很少也能佔滿整個瀏覽器視窗的高度，使 .container 垂直居中。 */
+    min-height: 100vh;
+    /* 移除網頁主體 (body) 的預設外邊距 (margin)，使內容緊貼瀏覽器視窗邊緣。 */
+    margin: 0;
+}
+
+.container {
+    /* 設定容器的背景顏色為白色。 */
+    background: white;
+    /* 設定容器內部的填充（內邊距），上下左右皆為 2rem。
+     * rem 是一個相對單位，相對於根元素 (html) 的字體大小。 */
+    padding: 2rem;
+    /* 設定容器的圓角半徑為 12px，使邊角圓滑。 */
+    border-radius: 12px;
+    /* 設定容器的陰影效果，使其有浮出頁面的立體感。
+     * 0 8px 30px 表示水平偏移 0，垂直偏移 8px，模糊半徑 30px。
+     * rgba(0,0,0,0.12) 設定陰影顏色為黑色，透明度為 12%。 */
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    /* 設定容器的寬度為其父容器 (body) 的 90%。 */
+    width: 90%;
+    /* 設定容器的最大寬度為 600px，避免在大螢幕上過寬，保持內容的可讀性。 */
+    max-width: 600px;
+    /* 設定容器內所有文本的水平對齊方式為居中。 */
+    text-align: center;
+}
+
+.input-group {
+    /* 使用 Flexbox 佈局，使內部元素（輸入框和按鈕）能夠在同一行彈性排列。 */
+    display: flex;
+    /* 設定 Flexbox 子元素之間的間距為 10px。 */
+    gap: 10px;
+    /* 設定輸入組的上方外邊距為 1.5rem，使其與上方內容保持距離。 */
+    margin-top: 1.5rem;
+}
+
+#searchTermInput {
+    /* 讓此輸入框在 Flexbox 容器中自動佔據所有可用空間（彈性增長）。
+     * 當有多個 flex-grow 元素時，它們會按比例分配剩餘空間。 */
+    flex-grow: 1;
+    /* 設定輸入框內部的填充（內邊距）為 0.75rem。 */
+    padding: 0.75rem;
+    /* 設定輸入框的邊框為 1px 實線淺灰色 (#ccc)。 */
+    border: 1px solid #ccc;
+    /* 設定輸入框的圓角半徑為 8px。 */
+    border-radius: 8px;
+    /* 設定輸入框內的字體大小為 1rem。 */
+    font-size: 1rem;
+}
+
+#analyzeButton {
+    /* 設定按鈕內部的填充（內邊距），上下為 0.75rem，左右為 1.5rem。 */
+    padding: 0.75rem 1.5rem;
+    /* 移除按鈕的預設邊框。 */
+    border: none;
+    /* 設定按鈕的背景顏色為藍色 (#007bff)。 */
+    background-color: #007bff;
+    /* 設定按鈕文本的顏色為白色。 */
+    color: white;
+    /* 設定按鈕的圓角半徑為 8px。 */
+    border-radius: 8px;
+    /* 設定按鈕文本的字體大小為 1rem。 */
+    font-size: 1rem;
+    /* 將鼠標懸停在按鈕上時顯示為手型指針，表示該元素可點擊。 */
+    cursor: pointer;
+    /* 設定背景顏色變化的過渡效果，使懸停時的顏色變化更平滑。
+     * 0.3s 是過渡時間，ease 是緩動函數。 */
+    transition: background-color 0.3s ease;
+}
+
+#analyzeButton:hover {
+    /* 當鼠標懸停在按鈕上時，改變背景顏色為較深的藍色 (#0056b3)。 */
+    background-color: #0056b3;
+}
+
+#resultsContainer {
+    /* 設定結果容器的上方外邊距為 2rem，使其與上方輸入組保持距離。 */
+    margin-top: 2rem;
+}
+
+.loader {
+    /* 設定加載動畫的邊框樣式為 5px 實線淺灰色 (#f3f3f3)。 */
+    border: 5px solid #f3f3f3;
+    /* 設定加載動畫頂部邊框的顏色為藍色 (#3498db)，製造旋轉效果的顏色差異。 */
+    border-top: 5px solid #3498db;
+    /* 設定加載動畫的邊框為 50% 圓角，使其呈現圓形。 */
+    border-radius: 50%;
+    /* 設定加載動畫的寬度為 40px。 */
+    width: 40px;
+    /* 設定加載動畫的高度為 40px。 */
+    height: 40px;
+    /* 應用名為 'spin' 的動畫，持續 1 秒，線性速度 (linear)，無限循環 (infinite)。 */
+    animation: spin 1s linear infinite;
+    /* 設定加載動畫的上下外邊距為 20px，左右自動，使其水平居中顯示。 */
+    margin: 20px auto;
+}
+
+/* 定義名為 'spin' 的關鍵幀動畫。 */
+@keyframes spin {
+    /* 動畫開始時（0% 進度），元素不旋轉。 */
+    0% { transform: rotate(0deg); }
+    /* 動畫結束時（100% 進度），元素順時針旋轉 360 度。 */
+    100% { transform: rotate(360deg); }
+}
+
+.result-card {
+    /* 設定結果卡片內部的填充（內邊距）為 1.5rem。 */
+    padding: 1.5rem;
+    /* 設定結果卡片的邊框為 1px 實線淺灰色 (#ddd)。 */
+    border: 1px solid #ddd;
+    /* 設定結果卡片的圓角半徑為 8px。 */
+    border-radius: 8px;
+    /* 設定結果卡片的上方外邊距為 1rem，使其與上方內容（如其他卡片）保持距離。 */
+    margin-top: 1rem;
+}
+
+.score-circle {
+    /* 設定分數圓圈內文本的字體大小為 3rem。 */
+    font-size: 3rem;
+    /* 設定分數圓圈內文本的字體粗細為粗體。 */
+    font-weight: bold;
+    /* 設定分數圓圈的邊框為 8px 實線。邊框顏色將由 JavaScript 動態設定，以表示不同的踩雷分數範圍。 */
+    border: 8px solid;
+    /* 設定分數圓圈的圓角半徑為 50%，使其呈現圓形。 */
+    border-radius: 50%;
+    /* 設定分數圓圈的寬度為 120px。 */
+    width: 120px;
+    /* 設定分數圓圈的高度為 120px。 */
+    height: 120px;
+    /* 設定分數圓圈的行高與其高度相同，這是一種使單行文本垂直居中的常用技巧。 */
+    line-height: 120px;
+    /* 設定分數圓圈的上下外邊距為 0，左右自動，使其水平居中顯示。 */
+    margin: 0 auto;
+}
+
+.risk-level {
+    /* 設定風險等級文本的字體大小為 1.5rem。 */
+    font-size: 1.5rem;
+    /* 設定風險等級文本的字體粗細為粗體。 */
+    font-weight: bold;
+    /* 設定風險等級文本的上下外邊距為 0.5rem，左右為 0。 */
+    margin: 0.5rem 0;
+}
+
+.summary {
+    /* 設定摘要文本的字體樣式為斜體。 */
+    font-style: italic;
+    /* 設定摘要文本的顏色為較淺的灰色 (#555)。 */
+    color: #555;
+}
+
+.error {
+    /* 設定錯誤訊息文本的顏色為紅色 (#d9534f)，用於突出顯示錯誤訊息。 */
+    color: #d9534f;
+}

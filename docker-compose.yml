@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  minesweeper_app:
+    # 指示 Docker Compose 使用當前目錄的 Dockerfile 來建置映像
+    build: .
+    # 將主機的 8000 端口映射到容器的 8000 端口
+    ports:
+      - "8000:8000"
+    # 將本地的 data 資料夾掛載到容器中，確保數據的持久化與一致性
+    volumes:
+      - ./data:/app/data
+    # 為容器命名
+    container_name: minesweeper_service

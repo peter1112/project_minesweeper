@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+pandas
+jieba
+requests
+python-dotenv
+pymongo
+azure-ai-textanalytics
